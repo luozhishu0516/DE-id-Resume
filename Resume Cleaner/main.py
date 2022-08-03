@@ -15,7 +15,7 @@ def open_text_file():
 def resume_cleaning(txt):
     outp=""
     outp2=""
-    nlp = spacy.load("/Users/a1/PycharmProjects/pythonProject/Resume Cleaner/output/model-best")
+    nlp = spacy.load("/output/model-best")##Each computer might have different path for model, if this doesnt work please copy your own path
     doc=nlp(txt)
     for token in doc:
         if token.ent_type_ == "Name":
@@ -31,7 +31,7 @@ def resume_cleaning(txt):
             outp2 = outp2 + " " + len(token) * "*"
         else:
             outp2 = outp2 + " " + token.text
-    f=open("/Users/a1/PycharmProjects/pythonProject/Resume Cleaner/clean_resume.txt", "w+")
+    f=open("clean_resume.txt", "w+")##Same as above please use your own Path
     f.write(outp2)
     f.close()
 
